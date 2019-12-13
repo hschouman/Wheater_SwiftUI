@@ -31,7 +31,7 @@ class URLManagerTests: XCTestCase {
         }
 
         // WHEN
-        let result = URLManager.createURL(from: baseURL, basePath: nil, path: nil, params: nil)
+        let result = URLConstructor.createURL(from: baseURL, basePath: nil, path: nil, params: nil)
 
         // THEN
         XCTAssert(result?.absoluteString == baseURLString)
@@ -48,7 +48,7 @@ class URLManagerTests: XCTestCase {
         let path = "/pathExemple"
 
         // WHEN
-        let result = URLManager.createURL(from: baseURL, basePath: nil, path: path, params: nil)
+        let result = URLConstructor.createURL(from: baseURL, basePath: nil, path: path, params: nil)
 
         // THEN
         XCTAssert(result?.absoluteString == baseURLString+path)
@@ -66,7 +66,7 @@ class URLManagerTests: XCTestCase {
         let path = "/pathExemple"
 
         // WHEN
-        let result = URLManager.createURL(from: baseURL, basePath: basePath, path: path, params: nil)
+        let result = URLConstructor.createURL(from: baseURL, basePath: basePath, path: path, params: nil)
 
         // THEN
         XCTAssert(result?.absoluteString == baseURLString+basePath+path)
@@ -84,7 +84,7 @@ class URLManagerTests: XCTestCase {
         let params = ["key1":"value1", "key2": "value2"]
 
         // WHEN
-        let result = URLManager.createURL(from: baseURL, basePath: nil, path: path, params: params)
+        let result = URLConstructor.createURL(from: baseURL, basePath: nil, path: path, params: params)
 
         // THEN
         XCTAssert(result?.absoluteString.contains(baseURLString) ?? false)

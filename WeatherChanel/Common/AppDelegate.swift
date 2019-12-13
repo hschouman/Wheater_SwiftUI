@@ -13,15 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        let service = WeatherService()
-        service.weather(cityIds: [.paris, .london, .barcelona]) { (result) in
-            switch result {
-            case .success(let cityList):
-                print(cityList.cities)
-            case .failure(let error):
-                print("Error fetching city weathers : \(error)")
-            }
-        }
         return true
     }
 }
