@@ -25,13 +25,16 @@ final class CurrentWeatherListViewModel: ObservableObject, UnidirectionalDataFlo
     // MARK: - Intput
     enum Input {
         case onAppear
+        case onRefresh
     }
-    func apply(_ input: Input) {
+    func apply(_ input: Input, completion: () -> ()) {
         switch input {
-        case .onAppear: onAppearSubject.send(())
+        case .onAppear: onAppearSubject.send(completion())
+        case .onRefresh: onRefreshSubject.send(completion())
         }
     }
     private let onAppearSubject = PassthroughSubject<Void, Never>()
+    private let onRefreshSubject = PassthroughSubject<Void, Never>()
 
     // MARK: - Output
     @Published private(set) var cities: [City] = []
@@ -63,8 +66,22 @@ final class CurrentWeatherListViewModel: ObservableObject, UnidirectionalDataFlo
             .share()
             .subscribe(responseSubject)
 
+        let responsePublisher2 = onRefreshSubject
+            .flatMap { [apiService] _ in
+                apiService.response(from: request)
+                    .catch { [weak self] error -> Empty<CurrentWeatherResponse, Never> in
+                        self?.errorSubject.send(error)
+                        return .init()
+                }
+        }
+
+        let responseStream2 = responsePublisher2
+            .share()
+            .subscribe(responseSubject)
+
         cancellables += [
-            responseStream
+            responseStream,
+            responseStream2
         ]
     }
 

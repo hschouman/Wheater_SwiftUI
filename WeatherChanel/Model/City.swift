@@ -15,7 +15,16 @@ struct City: Identifiable {
     let mainWeather: MainWeather
 }
 
-extension City: Decodable {
+extension City: Decodable, Hashable {
+
+    func hash(into hasher: inout Hasher) {
+
+    }
+
+    static func == (lhs: City, rhs: City) -> Bool {
+        return lhs.id == rhs.id
+    }
+
     enum CodingKeys: String, CodingKey {
         case id
         case name

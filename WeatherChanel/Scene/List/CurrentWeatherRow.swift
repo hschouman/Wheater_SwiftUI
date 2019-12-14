@@ -13,8 +13,9 @@ struct CurrentWeatherRow: View {
 
     var body: some View { 
         HStack {
-            Text(city.name)
-            Text(String(format: "%.1f °C", city.mainWeather.temp))
+            Image(city.weather[0].icon.rawValue)
+            Text(city.name).font(.title)
+            Text(String(format: "%.0f °C", city.mainWeather.temp))
             Text(city.weather[0].description)
         }
     }
