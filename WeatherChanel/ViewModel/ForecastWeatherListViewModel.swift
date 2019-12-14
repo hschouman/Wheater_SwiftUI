@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-final class ForecastWeatherViewModel: ObservableObject, UnidirectionalDataFlowType {
+final class ForecastWeatherListViewModel: ObservableObject, UnidirectionalDataFlowType {
 
     typealias InputType = Input
 

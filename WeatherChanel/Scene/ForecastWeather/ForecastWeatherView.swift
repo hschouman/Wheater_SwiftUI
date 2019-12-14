@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ForecastWeatherView: View {
 
-    @ObservedObject var viewModel: ForecastWeatherViewModel
+    @ObservedObject var viewModel: ForecastWeatherListViewModel
     @State private var isShowing = false
 
     var body: some View {
