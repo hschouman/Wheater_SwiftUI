@@ -11,12 +11,20 @@ import SwiftUI
 struct CurrentWeatherRow: View {
     var city: City
 
-    var body: some View { 
+    var body: some View {
         HStack {
             Image(city.weather[0].icon.rawValue)
-            Text(city.name).font(.title)
+            VStack {
+                Text(city.name)
+                    .font(.title)
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                Text(city.weather[0].description)
+                    .font(.body)
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            }
             Text(String(format: "%.0f °C", city.mainWeather.temp))
-            Text(city.weather[0].description)
+                .font(.title)
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
         }
     }
 }
