@@ -30,12 +30,11 @@ final class ForecastWeatherViewModel: ObservableObject, UnidirectionalDataFlowTy
     }
     func apply(_ input: Input, completion: () -> ()) {
         switch input {
-        case .onAppear: onAppearSubject.send(completion())
-        case .onRefresh: onRefreshSubject.send(completion())
+        case .onAppear: onEventSubject.send(completion())
+        case .onRefresh: onEventSubject.send(completion())
         }
     }
-    private let onAppearSubject = PassthroughSubject<Void, Never>()
-    private let onRefreshSubject = PassthroughSubject<Void, Never>()
+    private let onEventSubject = PassthroughSubject<Void, Never>()
 
     // MARK: - Output
     @Published private(set) var city: City
@@ -54,7 +53,7 @@ final class ForecastWeatherViewModel: ObservableObject, UnidirectionalDataFlowTy
     // MARK: - Func
     private func bindInputs() {
         let request = ForecastWeatherRequest(cityId: city.id)
-        let responsePublisher = onAppearSubject
+        let responsePublisher = onEventSubject
             .flatMap { [apiService] _ in
                 apiService.response(from: request)
                     .catch { [weak self] error -> Empty<ForecastWeatherResponse, Never> in
@@ -67,22 +66,8 @@ final class ForecastWeatherViewModel: ObservableObject, UnidirectionalDataFlowTy
             .share()
             .subscribe(responseSubject)
 
-        let responsePublisher2 = onRefreshSubject
-            .flatMap { [apiService] _ in
-                apiService.response(from: request)
-                    .catch { [weak self] error -> Empty<ForecastWeatherResponse, Never> in
-                        self?.errorSubject.send(error)
-                        return .init()
-                }
-        }
-
-        let responseStream2 = responsePublisher2
-            .share()
-            .subscribe(responseSubject)
-
         cancellables += [
-            responseStream,
-            responseStream2
+            responseStream
         ]
     }
 
