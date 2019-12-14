@@ -1,5 +1,5 @@
 //
-//  CurrentWeatherListViewModel.swift
+//  ForecastWeatherViewModel.swift
 //  WeatherChanel
 //
 //  Created by Hugo Schouman on 13/12/2019.
@@ -10,8 +10,8 @@ import Foundation
 import SwiftUI
 import Combine
 
+final class ForecastWeatherViewModel: ObservableObject, UnidirectionalDataFlowType {
 
-final class CurrentWeatherListViewModel: ObservableObject, UnidirectionalDataFlowType {
     typealias InputType = Input
 
     private var cancellables: [AnyCancellable] = []
@@ -19,7 +19,7 @@ final class CurrentWeatherListViewModel: ObservableObject, UnidirectionalDataFlo
     @Published var errorMessage = ""
 
     // MARK: - Dependencies
-    private let responseSubject = PassthroughSubject<CurrentWeatherResponse, Never>()
+    private let responseSubject = PassthroughSubject<ForecastWeatherResponse, Never>()
     private let errorSubject = PassthroughSubject<ServiceError, Never>()
     private let apiService: APIServiceType
 
@@ -38,11 +38,12 @@ final class CurrentWeatherListViewModel: ObservableObject, UnidirectionalDataFlo
     private let onRefreshSubject = PassthroughSubject<Void, Never>()
 
     // MARK: - Output
-    @Published private(set) var cities: [City] = []
-
+    @Published private(set) var city: City
+    @Published private(set) var days: [Day] = []
 
     // MARK: - Init
-    init(apiService: APIServiceType = APIService()) {
+    init(city: City, apiService: APIServiceType = APIService()) {
+        self.city = city
         self.apiService = apiService
 
         bindInputs()
@@ -51,11 +52,11 @@ final class CurrentWeatherListViewModel: ObservableObject, UnidirectionalDataFlo
 
     // MARK: - Func
     private func bindInputs() {
-        let request = CurrentWeatherRequest()
+        let request = ForecastWeatherRequest(cityId: city.id)
         let responsePublisher = onAppearSubject
             .flatMap { [apiService] _ in
                 apiService.response(from: request)
-                    .catch { [weak self] error -> Empty<CurrentWeatherResponse, Never> in
+                    .catch { [weak self] error -> Empty<ForecastWeatherResponse, Never> in
                         self?.errorSubject.send(error)
                         return .init()
                 }
@@ -68,7 +69,7 @@ final class CurrentWeatherListViewModel: ObservableObject, UnidirectionalDataFlo
         let responsePublisher2 = onRefreshSubject
             .flatMap { [apiService] _ in
                 apiService.response(from: request)
-                    .catch { [weak self] error -> Empty<CurrentWeatherResponse, Never> in
+                    .catch { [weak self] error -> Empty<ForecastWeatherResponse, Never> in
                         self?.errorSubject.send(error)
                         return .init()
                 }
@@ -87,10 +88,10 @@ final class CurrentWeatherListViewModel: ObservableObject, UnidirectionalDataFlo
     private func bindOutputs() {
         let citiesStream = responseSubject
             .map {
-                Logger.log(text: "Current weather call succed", level: .info)
-                return $0.cities
+                Logger.log(text: "Forecast weather call succed", level: .info)
+                return $0.days
         }
-            .assign(to: \.cities, on: self)
+            .assign(to: \.days, on: self)
 
         let errorMessageStream = errorSubject
             .map { error -> String in
@@ -110,4 +111,5 @@ final class CurrentWeatherListViewModel: ObservableObject, UnidirectionalDataFlo
             errorStream
         ]
     }
+
 }

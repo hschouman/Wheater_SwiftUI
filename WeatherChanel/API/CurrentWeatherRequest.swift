@@ -13,8 +13,9 @@ struct CurrentWeatherRequest: APIRequestType {
 
     var path: String { return "/data/2.5/group" }
     var queryItems: [URLQueryItem]? {
-        let ids = [CityId.barcelona, CityId.kiev, CityId.london, CityId.madrid, CityId.milan, CityId.moscow, CityId.newyork, CityId.paris]
-            .map({ "\($0.rawValue)" }).joined(separator: ",")
+        let ids = [CityId.barcelona, CityId.kiev, CityId.london, CityId.madrid, CityId.milan, CityId.moscow, CityId.paris]
+            .map({ "\($0.rawValue)" })
+            .joined(separator: ",")
         return [
             .init(name: "units", value: "metric"),
             .init(name: "id", value: "\(ids)"),

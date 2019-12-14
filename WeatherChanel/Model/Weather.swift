@@ -9,6 +9,8 @@
 import Foundation
 
 enum WeatherIcon: String, Decodable {
+
+    // day
     case clear = "01d"
     case fewClouds = "02d"
     case scatteredClouds = "03d"
@@ -18,6 +20,17 @@ enum WeatherIcon: String, Decodable {
     case thunderstorm = "11d"
     case snow = "13d"
     case mist = "50d"
+
+    // night
+    case nClear = "01n"
+    case nFewClouds = "02n"
+    case nScatteredClouds = "03n"
+    case nBrokenClouds = "04n"
+    case nShowerRain = "09n"
+    case nRain = "10n"
+    case nThunderstorm = "11n"
+    case nSnow = "13n"
+    case nMist = "50n"
 }
 
 struct Weather {
@@ -39,6 +52,7 @@ extension Weather: Decodable {
         description = try values.decode(String.self, forKey: .description)
         let iconString: String = try values.decode(String.self, forKey: .icon)
         icon = WeatherIcon(rawValue: iconString) ?? .clear
+        Logger.log(text: "icon name : %{PUBLIC}@", param: iconString, level: .debug)
     }
 }
 

@@ -53,12 +53,12 @@ final class APIService: APIServiceType {
         var request = URLRequest(url: urlComponents.url!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        let decorder = JSONDecoder()
-        decorder.keyDecodingStrategy = .convertFromSnakeCase
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
         return URLSession.shared.dataTaskPublisher(for: request)
             .map { data, urlResponse in data }
             .mapError { _ in ServiceError.badStatusCode }
-            .decode(type: Request.Response.self, decoder: decorder)
+            .decode(type: Request.Response.self, decoder: decoder)
             .mapError(ServiceError.parseError)
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
