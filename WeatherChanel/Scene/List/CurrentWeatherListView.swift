@@ -17,7 +17,11 @@ struct CurrentWeatherListView: View {
             List(viewModel.cities) { city in
                 CurrentWeatherRow(city: city)
             }.navigationBarTitle(Text("Current Weather"))
+
         }
+        .alert(isPresented: $viewModel.isErrorShown, content: { () -> Alert in
+                Alert(title: Text("Error"), message: Text(viewModel.errorMessage))
+        })
         .onAppear(perform: { self.viewModel.apply(.onAppear) })
     }
 }

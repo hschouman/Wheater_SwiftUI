@@ -70,17 +70,17 @@ final class CurrentWeatherListViewModel: ObservableObject, UnidirectionalDataFlo
 
     private func bindOutputs() {
         let citiesStream = responseSubject
-            .map { $0.cities }
+            .map {
+                Logger.log(text: "Current weather call succed", level: .info)
+                return $0.cities
+        }
             .assign(to: \.cities, on: self)
 
         let errorMessageStream = errorSubject
             .map { error -> String in
-                switch error {
-                case .callFailed: return "network error"
-                case .parseError: return "parse error"
-                default:
-                    return "api failed"
-                }
+
+                Logger.log(text: error.description, level: .error)
+                return String(error.description)
             }
             .assign(to: \.errorMessage, on: self)
 

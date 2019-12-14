@@ -27,6 +27,9 @@
 		1DDF692323A4174400CDF0F9 /* CurrentWeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF692223A4174400CDF0F9 /* CurrentWeatherResponse.swift */; };
 		1DDF692523A41FA300CDF0F9 /* CityIds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF692423A41FA300CDF0F9 /* CityIds.swift */; };
 		1DDF692723A4201800CDF0F9 /* CurrentWeatherRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF692623A4201800CDF0F9 /* CurrentWeatherRow.swift */; };
+		1DDF692A23A4D88B00CDF0F9 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF692923A4D88B00CDF0F9 /* Logger.swift */; };
+		1DDF692C23A4E00600CDF0F9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF692B23A4E00600CDF0F9 /* String.swift */; };
+		1DDF692E23A4E14D00CDF0F9 /* Environement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF692D23A4E14D00CDF0F9 /* Environement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,9 @@
 		1DDF692223A4174400CDF0F9 /* CurrentWeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherResponse.swift; sourceTree = "<group>"; };
 		1DDF692423A41FA300CDF0F9 /* CityIds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityIds.swift; sourceTree = "<group>"; };
 		1DDF692623A4201800CDF0F9 /* CurrentWeatherRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherRow.swift; sourceTree = "<group>"; };
+		1DDF692923A4D88B00CDF0F9 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		1DDF692B23A4E00600CDF0F9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		1DDF692D23A4E14D00CDF0F9 /* Environement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				1DDF690923A3F92A00CDF0F9 /* ImageView.swift */,
+				1DDF692B23A4E00600CDF0F9 /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -176,10 +183,12 @@
 			isa = PBXGroup;
 			children = (
 				1DDF68D623A3B10500CDF0F9 /* AppDelegate.swift */,
-				1DDF68D823A3B10500CDF0F9 /* SceneDelegate.swift */,
-				1DDF691623A408D800CDF0F9 /* ViewModel.swift */,
-				1DDF691A23A413E700CDF0F9 /* UnidirectionalDataFlowType.swift */,
 				1DDF692423A41FA300CDF0F9 /* CityIds.swift */,
+				1DDF692923A4D88B00CDF0F9 /* Logger.swift */,
+				1DDF68D823A3B10500CDF0F9 /* SceneDelegate.swift */,
+				1DDF691A23A413E700CDF0F9 /* UnidirectionalDataFlowType.swift */,
+				1DDF691623A408D800CDF0F9 /* ViewModel.swift */,
+				1DDF692D23A4E14D00CDF0F9 /* Environement.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -326,10 +335,13 @@
 				1DDF692323A4174400CDF0F9 /* CurrentWeatherResponse.swift in Sources */,
 				1DDF68FC23A3B27F00CDF0F9 /* City.swift in Sources */,
 				1DDF691323A408AD00CDF0F9 /* DetailCityView.swift in Sources */,
+				1DDF692E23A4E14D00CDF0F9 /* Environement.swift in Sources */,
 				1DDF691D23A4162100CDF0F9 /* APIService.swift in Sources */,
 				1DDF691723A408D800CDF0F9 /* ViewModel.swift in Sources */,
 				1DDF692023A416C900CDF0F9 /* CurrentWeatherRequest.swift in Sources */,
+				1DDF692A23A4D88B00CDF0F9 /* Logger.swift in Sources */,
 				1DDF68D723A3B10500CDF0F9 /* AppDelegate.swift in Sources */,
+				1DDF692C23A4E00600CDF0F9 /* String.swift in Sources */,
 				1DDF68D923A3B10500CDF0F9 /* SceneDelegate.swift in Sources */,
 				1DDF68DB23A3B10500CDF0F9 /* CurrentWeatherListView.swift in Sources */,
 				1DDF692723A4201800CDF0F9 /* CurrentWeatherRow.swift in Sources */,
@@ -519,6 +531,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cocoaconsulting.WeatherChanel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -644,6 +657,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cocoaconsulting.WeatherChanel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = STAGING;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

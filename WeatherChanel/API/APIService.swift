@@ -10,12 +10,20 @@ import Foundation
 import Combine
 
 enum ServiceError: Error {
-    case urlWithBadFormat
-    case callFailed
-    case noData
+    case networkError
     case badStatusCode
-    case failedToDecode
     case parseError(Error)
+
+    var description: StaticString {
+        switch self {
+        case .networkError:
+            return "No network"
+        case .badStatusCode:
+            return "The code HTTP is not valid"
+        case .parseError(_):
+            return "The JSON format is not valid"
+        }
+    }
 }
 
 protocol APIRequestType {
