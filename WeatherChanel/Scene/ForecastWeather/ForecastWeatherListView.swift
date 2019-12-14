@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ForecastWeatherView: View {
+struct ForecastWeatherListView: View {
 
     @ObservedObject var viewModel: ForecastWeatherListViewModel
     @State private var isShowing = false
@@ -36,7 +36,7 @@ struct DetailCityView_Previews: PreviewProvider {
         let city = City(id: 12, name: "Paris",
                         weather: [Weather(id: 12, description: "clear", icon: WeatherIcon.clear)],
                         temp: Temp(value: 25.4))
-        return ForecastWeatherView(viewModel: .init(city: city))
+        return ForecastWeatherListView(viewModel: .init(city: city))
     }
 }
 #endif

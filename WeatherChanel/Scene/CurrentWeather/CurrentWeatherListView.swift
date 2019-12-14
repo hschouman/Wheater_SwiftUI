@@ -16,7 +16,7 @@ struct CurrentWeatherListView: View {
     var body: some View {
         NavigationView {
             List(viewModel.cities) { city in
-                NavigationLink(destination: ForecastWeatherView(viewModel: ForecastWeatherListViewModel(city: city))) {
+                NavigationLink(destination: ForecastWeatherListView(viewModel: ForecastWeatherListViewModel(city: city))) {
                     CurrentWeatherRow(city: city)
                 }
             }
