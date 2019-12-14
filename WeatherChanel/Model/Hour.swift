@@ -21,7 +21,7 @@ extension Hour {
     }
 
     var tempString: String {
-        return String(format: "%.0f °C", temp.value)
+        return temp.string
     }
 }
 

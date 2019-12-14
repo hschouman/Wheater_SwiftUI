@@ -33,9 +33,12 @@
 		1DDF693823A5020C00CDF0F9 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF693723A5020C00CDF0F9 /* Temp.swift */; };
 		1DDF693A23A5034300CDF0F9 /* ForecastWeatherRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF693923A5034300CDF0F9 /* ForecastWeatherRow.swift */; };
 		1DDF693C23A52DCA00CDF0F9 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF693B23A52DCA00CDF0F9 /* DateFormatter.swift */; };
-		1DDF693E23A532A100CDF0F9 /* MainWheater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF693D23A532A100CDF0F9 /* MainWheater.swift */; };
 		1DDF694023A532C900CDF0F9 /* Hour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF693F23A532C900CDF0F9 /* Hour.swift */; };
 		1DDF694823A534C700CDF0F9 /* APITypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF694723A534C700CDF0F9 /* APITypes.swift */; };
+		1DDF694E23A53ADB00CDF0F9 /* TempModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF694D23A53ADB00CDF0F9 /* TempModelTests.swift */; };
+		1DDF695023A53BC200CDF0F9 /* WeatherModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF694F23A53BC200CDF0F9 /* WeatherModelTests.swift */; };
+		1DDF695323A53DFC00CDF0F9 /* HourModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF695223A53DFC00CDF0F9 /* HourModelTests.swift */; };
+		1DDF695523A54CA700CDF0F9 /* CityModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF695423A54CA700CDF0F9 /* CityModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,9 +82,12 @@
 		1DDF693723A5020C00CDF0F9 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 		1DDF693923A5034300CDF0F9 /* ForecastWeatherRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeatherRow.swift; sourceTree = "<group>"; };
 		1DDF693B23A52DCA00CDF0F9 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
-		1DDF693D23A532A100CDF0F9 /* MainWheater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWheater.swift; sourceTree = "<group>"; };
 		1DDF693F23A532C900CDF0F9 /* Hour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hour.swift; sourceTree = "<group>"; };
 		1DDF694723A534C700CDF0F9 /* APITypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITypes.swift; sourceTree = "<group>"; };
+		1DDF694D23A53ADB00CDF0F9 /* TempModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempModelTests.swift; sourceTree = "<group>"; };
+		1DDF694F23A53BC200CDF0F9 /* WeatherModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModelTests.swift; sourceTree = "<group>"; };
+		1DDF695223A53DFC00CDF0F9 /* HourModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourModelTests.swift; sourceTree = "<group>"; };
+		1DDF695423A54CA700CDF0F9 /* CityModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +154,7 @@
 		1DDF68EC23A3B10800CDF0F9 /* WeatherChanelTests */ = {
 			isa = PBXGroup;
 			children = (
+				1DDF695123A53DE700CDF0F9 /* Model */,
 				1DDF68EF23A3B10800CDF0F9 /* Info.plist */,
 			);
 			path = WeatherChanelTests;
@@ -159,7 +166,6 @@
 				1DDF692123A4173100CDF0F9 /* Response */,
 				1DDF68FB23A3B27F00CDF0F9 /* City.swift */,
 				1DDF693F23A532C900CDF0F9 /* Hour.swift */,
-				1DDF693D23A532A100CDF0F9 /* MainWheater.swift */,
 				1DDF693723A5020C00CDF0F9 /* Temp.swift */,
 				1DDF68F923A3B26D00CDF0F9 /* Weather.swift */,
 			);
@@ -285,6 +291,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		1DDF695123A53DE700CDF0F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1DDF694D23A53ADB00CDF0F9 /* TempModelTests.swift */,
+				1DDF694F23A53BC200CDF0F9 /* WeatherModelTests.swift */,
+				1DDF695223A53DFC00CDF0F9 /* HourModelTests.swift */,
+				1DDF695423A54CA700CDF0F9 /* CityModelTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -338,6 +355,7 @@
 					};
 					1DDF68E823A3B10800CDF0F9 = {
 						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
 						TestTargetID = 1DDF68D223A3B10500CDF0F9;
 					};
 				};
@@ -411,7 +429,6 @@
 				1DDF691923A408F700CDF0F9 /* CurrentWeatherListViewModel.swift in Sources */,
 				1DDF694023A532C900CDF0F9 /* Hour.swift in Sources */,
 				1DDF691B23A413E700CDF0F9 /* UnidirectionalDataFlowType.swift in Sources */,
-				1DDF693E23A532A100CDF0F9 /* MainWheater.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +436,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DDF695523A54CA700CDF0F9 /* CityModelTests.swift in Sources */,
+				1DDF695323A53DFC00CDF0F9 /* HourModelTests.swift in Sources */,
+				1DDF695023A53BC200CDF0F9 /* WeatherModelTests.swift in Sources */,
+				1DDF694E23A53ADB00CDF0F9 /* TempModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,6 +627,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U63J54NYS6;
 				INFOPLIST_FILE = WeatherChanelTests/Info.plist;
@@ -617,6 +639,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cocoaconsulting.WeatherChanelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeatherChanel.app/WeatherChanel";
@@ -628,6 +651,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U63J54NYS6;
 				INFOPLIST_FILE = WeatherChanelTests/Info.plist;
@@ -732,6 +756,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U63J54NYS6;
 				INFOPLIST_FILE = WeatherChanelTests/Info.plist;
@@ -743,6 +768,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cocoaconsulting.WeatherChanelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeatherChanel.app/WeatherChanel";

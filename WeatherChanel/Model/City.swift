@@ -12,7 +12,7 @@ struct City: Identifiable {
     let id: Int
     let name: String
     let weather: [Weather]
-    let mainWeather: MainWeather
+    let temp: Temp
 }
 
 extension City: Decodable {
@@ -21,12 +21,12 @@ extension City: Decodable {
         case id
         case name
         case weather
-        case mainWeather = "main"
+        case temp = "main"
     }
 }
 
 extension City {
     var tempString: String {
-        return String(format: "%.0f °C", mainWeather.temp)
+        return temp.string
     }
 }

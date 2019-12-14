@@ -32,8 +32,9 @@ struct CurrentWeatherRow: View {
 #if DEBUG
 struct CurrentWeatherRow_Previews: PreviewProvider {
     static var previews: some View {
-        let city = City(id: 12, name: "Paris", weather: [Weather(id: 12, description: "clear", icon: WeatherIcon.clear)],
-                        mainWeather: MainWeather(temp: 25.4, humidity: 20))
+        let city = City(id: 12, name: "Paris",
+                        weather: [Weather(id: 12, description: "clear", icon: WeatherIcon.clear)],
+                        temp: Temp(value: 25.4))
         return CurrentWeatherRow(city: city)
     }
 }

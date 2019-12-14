@@ -18,3 +18,9 @@ extension Temp: Decodable {
         case value = "temp"
     }
 }
+
+extension Temp {
+    var string: String {
+        return String(format: "%.0f °C", value)
+    }
+}
