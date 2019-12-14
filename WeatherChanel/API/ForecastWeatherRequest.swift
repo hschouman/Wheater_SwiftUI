@@ -13,12 +13,12 @@ struct ForecastWeatherRequest: APIRequestType {
 
     let cityId: Int
 
-    var path: String { return "/data/2.5/forecast" }
+    var path: String { return "\(APIConstants.basePath.rawValue)/forecast" }
     var queryItems: [URLQueryItem]? {
         return [
-            .init(name: "units", value: "metric"),
-            .init(name: "id", value: "\(cityId)"),
-            .init(name: "appid", value: "ead2be695e935e8a560ac3b0ede63005")
+            .init(name: APIConstants.unitsKey.rawValue, value: APIConstants.unitsValue.rawValue),
+            .init(name: APIConstants.idKey.rawValue, value: "\(cityId)"),
+            .init(name: APIConstants.appIdKey.rawValue, value: APIConstants.appIdValue.rawValue)
         ]
     }
 }
