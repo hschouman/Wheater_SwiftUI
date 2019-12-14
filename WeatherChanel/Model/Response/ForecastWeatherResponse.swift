@@ -9,9 +9,9 @@
 import Foundation
 
 struct ForecastWeatherResponse: Decodable {
-        let days: [Day]
+    let hours: [Hour]
 
     enum CodingKeys: String, CodingKey {
-        case days = "list"
+        case hours = "list"
     }
 }

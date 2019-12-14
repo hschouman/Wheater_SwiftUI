@@ -16,6 +16,7 @@ struct ForecastWeatherRequest: APIRequestType {
     var path: String { return "/data/2.5/forecast" }
     var queryItems: [URLQueryItem]? {
         return [
+            .init(name: "units", value: "metric"),
             .init(name: "id", value: "\(cityId)"),
             .init(name: "appid", value: "ead2be695e935e8a560ac3b0ede63005")
         ]

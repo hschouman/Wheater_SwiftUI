@@ -34,6 +34,7 @@
 		1DDF693623A5004300CDF0F9 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF693523A5004300CDF0F9 /* Day.swift */; };
 		1DDF693823A5020C00CDF0F9 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF693723A5020C00CDF0F9 /* Temp.swift */; };
 		1DDF693A23A5034300CDF0F9 /* ForecastWeatherRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF693923A5034300CDF0F9 /* ForecastWeatherRow.swift */; };
+		1DDF693C23A52DCA00CDF0F9 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF693B23A52DCA00CDF0F9 /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		1DDF693523A5004300CDF0F9 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		1DDF693723A5020C00CDF0F9 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 		1DDF693923A5034300CDF0F9 /* ForecastWeatherRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeatherRow.swift; sourceTree = "<group>"; };
+		1DDF693B23A52DCA00CDF0F9 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 				1DDF691A23A413E700CDF0F9 /* UnidirectionalDataFlowType.swift */,
 				1DDF692D23A4E14D00CDF0F9 /* Environement.swift */,
 				1DDF692F23A4F06700CDF0F9 /* PullToRefresh.swift */,
+				1DDF693B23A52DCA00CDF0F9 /* DateFormatter.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				1DDF691D23A4162100CDF0F9 /* APIService.swift in Sources */,
 				1DDF692023A416C900CDF0F9 /* CurrentWeatherRequest.swift in Sources */,
 				1DDF692A23A4D88B00CDF0F9 /* Logger.swift in Sources */,
+				1DDF693C23A52DCA00CDF0F9 /* DateFormatter.swift in Sources */,
 				1DDF68D723A3B10500CDF0F9 /* AppDelegate.swift in Sources */,
 				1DDF693823A5020C00CDF0F9 /* Temp.swift in Sources */,
 				1DDF693023A4F06700CDF0F9 /* PullToRefresh.swift in Sources */,

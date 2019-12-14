@@ -10,15 +10,11 @@ import Foundation
 
 struct Temp {
     let value: Double
-    let min: Double
-    let max: Double
 }
 
 extension Temp: Decodable {
 
     enum CodingKeys: String, CodingKey {
         case value = "temp"
-        case min = "temp_min"
-        case max = "temp_max"
     }
 }

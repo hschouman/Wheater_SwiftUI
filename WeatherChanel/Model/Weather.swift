@@ -52,7 +52,6 @@ extension Weather: Decodable {
         description = try values.decode(String.self, forKey: .description)
         let iconString: String = try values.decode(String.self, forKey: .icon)
         icon = WeatherIcon(rawValue: iconString) ?? .clear
-        Logger.log(text: "icon name : %{PUBLIC}@", param: iconString, level: .debug)
     }
 }
 

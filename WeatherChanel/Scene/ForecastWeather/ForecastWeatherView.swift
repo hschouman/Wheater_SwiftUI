@@ -14,22 +14,19 @@ struct ForecastWeatherView: View {
     @State private var isShowing = false
 
     var body: some View {
-
-        NavigationView {
-            List(viewModel.days) { day in
-                ForecastWeatherRow(day: day)
-            }
-            .navigationBarTitle(Text(self.viewModel.city.name))
-            .background(PullToRefresh(action: {
-                self.viewModel.apply(.onRefresh, completion: {
-                    self.isShowing = false
-                })
-            }, isShowing: $isShowing))
+        List(viewModel.hours) { hour in
+            ForecastWeatherRow(hour: hour)
         }
+        .navigationBarTitle(Text(self.viewModel.city.name))
+        .background(PullToRefresh(action: {
+            self.viewModel.apply(.onRefresh, completion: {
+                self.isShowing = false
+            })
+        }, isShowing: $isShowing))
         .alert(isPresented: $viewModel.isErrorShown, content: { () -> Alert in
             Alert(title: Text("Error"), message: Text(viewModel.errorMessage))
         })
-            .onAppear(perform: { self.viewModel.apply(.onAppear, completion: {}) })
+        .onAppear(perform: { self.viewModel.apply(.onAppear, completion: {}) })
     }
 }
 

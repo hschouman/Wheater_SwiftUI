@@ -39,7 +39,7 @@ final class ForecastWeatherViewModel: ObservableObject, UnidirectionalDataFlowTy
 
     // MARK: - Output
     @Published private(set) var city: City
-    @Published private(set) var days: [Day] = []
+    @Published private(set) var hours: [Hour] = []
 
     // MARK: - Init
     init(city: City, apiService: APIServiceType = APIService()) {
@@ -89,9 +89,9 @@ final class ForecastWeatherViewModel: ObservableObject, UnidirectionalDataFlowTy
         let citiesStream = responseSubject
             .map {
                 Logger.log(text: "Forecast weather call succed", level: .info)
-                return $0.days
+                return $0.hours
         }
-            .assign(to: \.days, on: self)
+            .assign(to: \.hours, on: self)
 
         let errorMessageStream = errorSubject
             .map { error -> String in

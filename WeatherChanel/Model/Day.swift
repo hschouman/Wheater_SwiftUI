@@ -8,24 +8,33 @@
 
 import Foundation
 
-struct Hour {
+struct Hour: Identifiable {
+    let id: Int64
     let date: Date
     let temp: Temp
-//    let weather: [Weather]
+    let weather: [Weather]
+}
+
+extension Hour {
+    var dateString: String {
+        return WeatherDateFormatter.display(date: date)
+    }
 }
 
 extension Hour: Decodable {
     enum CodingKeys: String, CodingKey {
         case date = "dt"
         case temp = "main"
-//        case weather
+        case weather
     }
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let timeStamp: Int = try container.decode(Int.self, forKey: .date)
+        let timeStamp: Int64 = try container.decode(Int64.self, forKey: .date)
+        id = timeStamp
         date = Date(timeIntervalSince1970: Double(timeStamp))
         temp = try container.decode(Temp.self, forKey: .temp)
+        weather = try container.decode([Weather].self, forKey: .weather)
     }
 }
 

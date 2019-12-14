@@ -20,7 +20,7 @@ enum ServiceError: Error {
             return "No network"
         case .badStatusCode:
             return "The code HTTP is not valid"
-        case .parseError(_):
+        case .parseError(let error):
             return "The JSON format is not valid"
         }
     }
