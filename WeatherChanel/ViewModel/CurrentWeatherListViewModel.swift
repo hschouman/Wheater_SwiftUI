@@ -39,6 +39,8 @@ final class CurrentWeatherListViewModel: ObservableObject, UnidirectionalDataFlo
 
     // MARK: - Output
     @Published private(set) var cities: [City] = []
+    let errorTitle = "Error"
+    let screenTitle = "Current Weather"
 
 
     // MARK: - Init

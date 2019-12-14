@@ -17,7 +17,7 @@ struct ForecastWeatherRow: View {
             Text(hour.dateString)
             Image(hour.weather[0].icon.rawValue)
             Text(hour.weather[0].description).font(.body)
-            Text(String(format: "%.0f °C", hour.temp.value))
+            Text(hour.tempString)
                 .bold()
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
                 .font(.body)

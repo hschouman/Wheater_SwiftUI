@@ -55,14 +55,4 @@ extension Weather: Decodable {
     }
 }
 
-struct MainWeather {
-    let temp: Double
-    let humidity: Int
-}
 
-extension MainWeather: Decodable {
-    enum CodingKeys: String, CodingKey {
-        case temp
-        case humidity
-    }
-}

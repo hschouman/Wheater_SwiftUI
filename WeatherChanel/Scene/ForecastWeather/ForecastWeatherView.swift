@@ -24,7 +24,7 @@ struct ForecastWeatherView: View {
             })
         }, isShowing: $isShowing))
         .alert(isPresented: $viewModel.isErrorShown, content: { () -> Alert in
-            Alert(title: Text("Error"), message: Text(viewModel.errorMessage))
+            Alert(title: Text(viewModel.errorTitle), message: Text(viewModel.errorMessage))
         })
         .onAppear(perform: { self.viewModel.apply(.onAppear, completion: {}) })
     }

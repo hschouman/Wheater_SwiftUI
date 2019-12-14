@@ -40,6 +40,7 @@ final class ForecastWeatherViewModel: ObservableObject, UnidirectionalDataFlowTy
     // MARK: - Output
     @Published private(set) var city: City
     @Published private(set) var hours: [Hour] = []
+    let errorTitle = "Error"
 
     // MARK: - Init
     init(city: City, apiService: APIServiceType = APIService()) {

@@ -24,3 +24,9 @@ extension City: Decodable {
         case mainWeather = "main"
     }
 }
+
+extension City {
+    var tempString: String {
+        return String(format: "%.0f °C", mainWeather.temp)
+    }
+}

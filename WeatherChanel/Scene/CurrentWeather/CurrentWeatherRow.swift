@@ -22,7 +22,7 @@ struct CurrentWeatherRow: View {
                     .font(.body)
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
             }
-            Text(String(format: "%.0f °C", city.mainWeather.temp))
+            Text(city.tempString)
                 .font(.title)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
         }
@@ -32,7 +32,8 @@ struct CurrentWeatherRow: View {
 #if DEBUG
 struct CurrentWeatherRow_Previews: PreviewProvider {
     static var previews: some View {
-        let city = City(id: 12, name: "Paris", weather: [Weather(id: 12, description: "clear", icon: WeatherIcon.clear)], mainWeather: MainWeather(temp: 25.4, humidity: 20))
+        let city = City(id: 12, name: "Paris", weather: [Weather(id: 12, description: "clear", icon: WeatherIcon.clear)],
+                        mainWeather: MainWeather(temp: 25.4, humidity: 20))
         return CurrentWeatherRow(city: city)
     }
 }

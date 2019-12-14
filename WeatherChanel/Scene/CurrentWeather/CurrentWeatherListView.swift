@@ -20,7 +20,7 @@ struct CurrentWeatherListView: View {
                     CurrentWeatherRow(city: city)
                 }
             }
-            .navigationBarTitle(Text("Current Weather"))
+            .navigationBarTitle(Text(self.viewModel.screenTitle))
             .background(PullToRefresh(action: {
                 self.viewModel.apply(.onRefresh, completion: {
                     self.isShowing = false
@@ -28,7 +28,7 @@ struct CurrentWeatherListView: View {
             }, isShowing: $isShowing))
         }
         .alert(isPresented: $viewModel.isErrorShown, content: { () -> Alert in
-            Alert(title: Text("Error"), message: Text(viewModel.errorMessage))
+            Alert(title: Text(viewModel.errorTitle), message: Text(viewModel.errorMessage))
         })
             .onAppear(perform: { self.viewModel.apply(.onAppear, completion: {}) })
     }

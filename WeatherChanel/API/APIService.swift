@@ -9,30 +9,6 @@
 import Foundation
 import Combine
 
-enum ServiceError: Error {
-    case networkError
-    case badStatusCode
-    case parseError(Error)
-
-    var description: StaticString {
-        switch self {
-        case .networkError:
-            return "No network"
-        case .badStatusCode:
-            return "The code HTTP is not valid"
-        case .parseError(let error):
-            return "The JSON format is not valid"
-        }
-    }
-}
-
-protocol APIRequestType {
-    associatedtype Response: Decodable
-
-    var path: String { get }
-    var queryItems: [URLQueryItem]? { get }
-}
-
 protocol APIServiceType {
     func response<Request>(from request: Request) -> AnyPublisher<Request.Response, ServiceError> where Request: APIRequestType
 }

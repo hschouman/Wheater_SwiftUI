@@ -1,5 +1,5 @@
 //
-//  Day.swift
+//  Hour.swift
 //  WeatherChanel
 //
 //  Created by Hugo Schouman on 14/12/2019.
@@ -19,6 +19,10 @@ extension Hour {
     var dateString: String {
         return WeatherDateFormatter.display(date: date)
     }
+
+    var tempString: String {
+        return String(format: "%.0f °C", temp.value)
+    }
 }
 
 extension Hour: Decodable {
@@ -35,31 +39,5 @@ extension Hour: Decodable {
         date = Date(timeIntervalSince1970: Double(timeStamp))
         temp = try container.decode(Temp.self, forKey: .temp)
         weather = try container.decode([Weather].self, forKey: .weather)
-    }
-}
-
-struct Day: Identifiable {
-    let id: Int
-    let date: Date
-    let hours: [Hour]
-}
-
-extension Day: Decodable {
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case hours = "list"
-    }
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-
-        hours = try container.decode([Hour].self, forKey: .hours)
-        if let firstHourDate = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: hours[0].date)) {
-              date = firstHourDate
-        } else {
-            date = Date()
-        }
-        id = date.hashValue
     }
 }
