@@ -13,12 +13,9 @@ struct CurrentWeatherRequest: APIRequestType {
 
     var path: String { return "\(APIConstants.basePath.rawValue)/group" }
     var queryItems: [URLQueryItem]? {
-        let ids = [CityId.barcelona, CityId.kiev, CityId.london, CityId.madrid, CityId.milan, CityId.moscow, CityId.paris]
-            .map({ "\($0.rawValue)" })
-            .joined(separator: ",")
         return [
             .init(name: APIConstants.unitsKey.rawValue, value: APIConstants.unitsValue.rawValue),
-            .init(name: APIConstants.idKey.rawValue, value: "\(ids)"),
+            .init(name: APIConstants.idKey.rawValue, value: CityId.allJoined),
             .init(name: APIConstants.appIdKey.rawValue, value: APIConstants.appIdValue.rawValue)
         ]
     }
