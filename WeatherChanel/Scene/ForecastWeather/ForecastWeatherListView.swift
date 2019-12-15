@@ -14,8 +14,14 @@ struct ForecastWeatherListView: View {
     @State private var isShowing = false
 
     var body: some View {
-        List(viewModel.hours) { hour in
-            ForecastWeatherRow(hour: hour)
+        List {
+            ForEach(viewModel.days) { day in
+                Section(header: Text(day.dateString)) {
+                    ForEach(day.hours) { hour in
+                        ForecastWeatherRow(hour: hour)
+                    }
+                }
+            }
         }
         .navigationBarTitle(Text(self.viewModel.city.name))
         .background(PullToRefresh(action: {

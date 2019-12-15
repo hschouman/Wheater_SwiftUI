@@ -75,7 +75,7 @@ final class CurrentWeatherListViewModel: ObservableObject, UnidirectionalDataFlo
         let citiesStream = responseSubject
             .map {
                 Logger.log(text: "Current weather call succed", level: .info)
-                return $0.cities
+                return $0.cities.sorted { $0.name < $1.name }
         }
             .assign(to: \.cities, on: self)
 

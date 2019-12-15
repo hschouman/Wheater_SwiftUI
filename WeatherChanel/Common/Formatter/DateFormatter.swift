@@ -12,9 +12,15 @@ struct WeatherDateFormatter {
 
     private init() {}
 
-    static func display(date: Date) -> String {
+    static func displayDay(date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd HH:mm"
+        dateFormatter.dateFormat = "MM/dd"
+        return dateFormatter.string(from: date)
+    }
+
+    static func displayTime(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
         return dateFormatter.string(from: date)
     }
 }

@@ -45,6 +45,8 @@
 		1DDF696323A55F8800CDF0F9 /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF696223A55F8800CDF0F9 /* MockAPIService.swift */; };
 		1DDF696523A55FE100CDF0F9 /* CurrentWeatherListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF696423A55FE100CDF0F9 /* CurrentWeatherListViewModelTests.swift */; };
 		1DDF696723A561D300CDF0F9 /* ForecastWeatherListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF696623A561D300CDF0F9 /* ForecastWeatherListViewModelTests.swift */; };
+		1DDF696923A632E700CDF0F9 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF696823A632E700CDF0F9 /* Day.swift */; };
+		1DDF696B23A6385000CDF0F9 /* DayModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF696A23A6384F00CDF0F9 /* DayModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@
 		1DDF696223A55F8800CDF0F9 /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
 		1DDF696423A55FE100CDF0F9 /* CurrentWeatherListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherListViewModelTests.swift; sourceTree = "<group>"; };
 		1DDF696623A561D300CDF0F9 /* ForecastWeatherListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastWeatherListViewModelTests.swift; sourceTree = "<group>"; };
+		1DDF696823A632E700CDF0F9 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		1DDF696A23A6384F00CDF0F9 /* DayModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,7 @@
 			children = (
 				1DDF692123A4173100CDF0F9 /* Response */,
 				1DDF68FB23A3B27F00CDF0F9 /* City.swift */,
+				1DDF696823A632E700CDF0F9 /* Day.swift */,
 				1DDF693F23A532C900CDF0F9 /* Hour.swift */,
 				1DDF693723A5020C00CDF0F9 /* Temp.swift */,
 				1DDF68F923A3B26D00CDF0F9 /* Weather.swift */,
@@ -310,10 +315,11 @@
 			isa = PBXGroup;
 			children = (
 				1DDF695623A54F6F00CDF0F9 /* Response */,
+				1DDF695423A54CA700CDF0F9 /* CityModelTests.swift */,
+				1DDF696A23A6384F00CDF0F9 /* DayModelTests.swift */,
+				1DDF695223A53DFC00CDF0F9 /* HourModelTests.swift */,
 				1DDF694D23A53ADB00CDF0F9 /* TempModelTests.swift */,
 				1DDF694F23A53BC200CDF0F9 /* WeatherModelTests.swift */,
-				1DDF695223A53DFC00CDF0F9 /* HourModelTests.swift */,
-				1DDF695423A54CA700CDF0F9 /* CityModelTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -462,6 +468,7 @@
 				1DDF693C23A52DCA00CDF0F9 /* DateFormatter.swift in Sources */,
 				1DDF68D723A3B10500CDF0F9 /* AppDelegate.swift in Sources */,
 				1DDF693823A5020C00CDF0F9 /* Temp.swift in Sources */,
+				1DDF696923A632E700CDF0F9 /* Day.swift in Sources */,
 				1DDF693023A4F06700CDF0F9 /* PullToRefresh.swift in Sources */,
 				1DDF692C23A4E00600CDF0F9 /* String.swift in Sources */,
 				1DDF68D923A3B10500CDF0F9 /* SceneDelegate.swift in Sources */,
@@ -479,6 +486,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DDF696B23A6385000CDF0F9 /* DayModelTests.swift in Sources */,
 				1DDF695A23A552E100CDF0F9 /* ForecastWeatherResponseTests.swift in Sources */,
 				1DDF696723A561D300CDF0F9 /* ForecastWeatherListViewModelTests.swift in Sources */,
 				1DDF695523A54CA700CDF0F9 /* CityModelTests.swift in Sources */,

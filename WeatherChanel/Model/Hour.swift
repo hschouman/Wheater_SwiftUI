@@ -17,7 +17,7 @@ struct Hour: Identifiable {
 
 extension Hour {
     var dateString: String {
-        return WeatherDateFormatter.display(date: date)
+        return WeatherDateFormatter.displayTime(date: date)
     }
 
     var tempString: String {

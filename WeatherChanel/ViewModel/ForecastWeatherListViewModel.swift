@@ -38,7 +38,7 @@ final class ForecastWeatherListViewModel: ObservableObject, UnidirectionalDataFl
 
     // MARK: - Output
     @Published private(set) var city: City
-    @Published private(set) var hours: [Hour] = []
+    @Published private(set) var days: [Day] = []
     let errorTitle = "Error"
 
     // MARK: - Init
@@ -72,12 +72,12 @@ final class ForecastWeatherListViewModel: ObservableObject, UnidirectionalDataFl
     }
 
     private func bindOutputs() {
-        let citiesStream = responseSubject
+        let hoursStream = responseSubject
             .map {
                 Logger.log(text: "Forecast weather call succed", level: .info)
-                return $0.hours
+                return self.computeDays(from: $0.hours)
         }
-            .assign(to: \.hours, on: self)
+            .assign(to: \.days, on: self)
 
         let errorMessageStream = errorSubject
             .map { error -> String in
@@ -92,10 +92,38 @@ final class ForecastWeatherListViewModel: ObservableObject, UnidirectionalDataFl
             .assign(to: \.isErrorShown, on: self)
 
         cancellables += [
-            citiesStream,
+            hoursStream,
             errorMessageStream,
             errorStream
         ]
     }
 
+    private func computeDays(from hours: [Hour]) -> [Day] {
+        var days = [Day]()
+        hours.forEach { (hour) in
+            if !days.contains(where: { Calendar.current.isDate($0.date, inSameDayAs: hour.date) }) {
+                let day = Day(date: hour.date, hours: [hour])
+                days.append(day)
+            } else {
+                guard let dayIndex = days.firstIndex(where: { Calendar.current.isDate($0.date, inSameDayAs: hour.date) }) else {
+                    return
+                }
+                days[dayIndex].hours.append(hour)
+            }
+        }
+        return sort(days: days)
+    }
+
+    private func sort(days: [Day]) -> [Day] {
+
+        let presortedDays = days.sorted(by: { $0.date < $1.date })
+
+        var sortedDays = [Day]()
+        presortedDays.forEach { (day) in
+            let sortedHours = day.hours.sorted(by: { $0.date < $1.date } )
+            let sortedDay = Day(date: day.date, hours: sortedHours)
+            sortedDays.append(sortedDay)
+        }
+        return sortedDays
+    }
 }
